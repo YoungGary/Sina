@@ -34,6 +34,8 @@ extension MainTabbarController{
         composeButton.sizeToFit()
         
         composeButton.center = CGPointMake(tabBar.center.x, tabBar.bounds.size.height*0.5)
+        
+        composeButton.addTarget(self, action: "composeButtonClick", forControlEvents: .TouchUpInside)
     }
     //MARK:tabbar选中图片
     private func tabbarItems(){
@@ -49,8 +51,12 @@ extension MainTabbarController{
         }
     }
 }
-
-
+//MARK: 点击事件的监听
+extension MainTabbarController{
+    func composeButtonClick() {
+        print("click")
+    }
+}
 
 
 
