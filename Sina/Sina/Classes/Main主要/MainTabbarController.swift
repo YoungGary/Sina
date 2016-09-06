@@ -17,6 +17,7 @@ class MainTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
        addComposeButton()
+        
     }
     
     //在view will appear中遍历tabbar 改变选中图片
@@ -35,7 +36,7 @@ extension MainTabbarController{
         
         composeButton.center = CGPointMake(tabBar.center.x, tabBar.bounds.size.height*0.5)
         
-        composeButton.addTarget(self, action: "composeButtonClick", forControlEvents: .TouchUpInside)
+        composeButton.addTarget(self, action: #selector(MainTabbarController.composeButtonClick), forControlEvents: .TouchUpInside)
     }
     //MARK:tabbar选中图片
     private func tabbarItems(){
