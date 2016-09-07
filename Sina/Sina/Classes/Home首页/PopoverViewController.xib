@@ -22,7 +22,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="0Pk-FN-hS2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="4iR-er-cYq"/>
                 <constraint firstItem="0Pk-FN-hS2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="7sE-Ay-7Kx"/>

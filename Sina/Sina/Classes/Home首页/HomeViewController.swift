@@ -8,9 +8,14 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController{
 
     private lazy var titleButton : TitleButton = TitleButton()
+    
+    private lazy var transintonAnimaiton : HomeTransitionAnimation = HomeTransitionAnimation { [weak self] (presented) -> () in
+        self?.titleButton.selected = presented
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +37,6 @@ extension HomeViewController{
         button.sizeToFit()
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop")
         
     }
@@ -40,7 +44,6 @@ extension HomeViewController{
     private func setupTitleButton(){
         titleButton.setTitle("coderwhy", forState: .Normal)
         navigationItem.titleView = titleButton
-        
         titleButton.addTarget(self, action: #selector(HomeViewController.didClickTitleButton), forControlEvents: .TouchUpInside)
     }
     
@@ -49,16 +52,20 @@ extension HomeViewController{
 //MARK:监听点击
 extension HomeViewController{
    @objc private func didClickTitleButton(){
-        titleButton.selected = !titleButton.selected;
+        //titleButton.selected = !titleButton.selected;
         //创建控制器
         let propover = PopoverViewController()
+        
         //设置modal类型
         propover.modalPresentationStyle = .Custom
+        let x =  UIScreen.mainScreen().bounds.size.width/2
+        transintonAnimaiton.presentedFrame = CGRect(x: x-90, y: 60, width: 180, height:260)
+        //设置代理
+        propover.transitioningDelegate = transintonAnimaiton
+    
         presentViewController(propover, animated: true, completion: nil)
     }
 }
-
-
 
 
 

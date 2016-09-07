@@ -25,6 +25,8 @@
 		6F2B71131D7F0CD7003059F7 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2B71121D7F0CD7003059F7 /* TitleButton.swift */; };
 		6F2B711A1D7F2001003059F7 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2B71181D7F2001003059F7 /* PopoverViewController.swift */; };
 		6F2B711B1D7F2001003059F7 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2B71191D7F2001003059F7 /* PopoverViewController.xib */; };
+		6F3220F81D7FEFB50084E40C /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3220F71D7FEFB50084E40C /* PresentationController.swift */; };
+		6F3220FA1D8006EE0084E40C /* HomeTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3220F91D8006EE0084E40C /* HomeTransitionAnimation.swift */; };
 		6F9CA1831D7BFF6E00E053B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9CA1821D7BFF6E00E053B3 /* AppDelegate.swift */; };
 		6F9CA1881D7BFF6E00E053B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CA1861D7BFF6E00E053B3 /* Main.storyboard */; };
 		6F9CA18A1D7BFF6E00E053B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CA1891D7BFF6E00E053B3 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		6F2B71121D7F0CD7003059F7 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		6F2B71181D7F2001003059F7 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		6F2B71191D7F2001003059F7 /* PopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		6F3220F71D7FEFB50084E40C /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		6F3220F91D8006EE0084E40C /* HomeTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTransitionAnimation.swift; sourceTree = "<group>"; };
 		6F9CA17F1D7BFF6E00E053B3 /* Sina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9CA1821D7BFF6E00E053B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F9CA1871D7BFF6E00E053B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				6F2B71121D7F0CD7003059F7 /* TitleButton.swift */,
 				6F2B71181D7F2001003059F7 /* PopoverViewController.swift */,
 				6F2B71191D7F2001003059F7 /* PopoverViewController.xib */,
+				6F3220F71D7FEFB50084E40C /* PresentationController.swift */,
+				6F3220F91D8006EE0084E40C /* HomeTransitionAnimation.swift */,
 			);
 			path = "Home首页";
 			sourceTree = "<group>";
@@ -274,6 +280,8 @@
 				6F0E26761D7C755500DDB0AB /* MessageViewController.swift in Sources */,
 				6F0E26741D7C754900DDB0AB /* HomeViewController.swift in Sources */,
 				6F2B710A1D7DA0D2003059F7 /* BaseViewController.swift in Sources */,
+				6F3220F81D7FEFB50084E40C /* PresentationController.swift in Sources */,
+				6F3220FA1D8006EE0084E40C /* HomeTransitionAnimation.swift in Sources */,
 				6F2B710D1D7DA258003059F7 /* VisitorView.swift in Sources */,
 				6F0E26781D7C756100DDB0AB /* DiscoverViewController.swift in Sources */,
 				6F0E268B1D7C861000DDB0AB /* UIbuttonExtension.swift in Sources */,
