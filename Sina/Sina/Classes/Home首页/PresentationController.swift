@@ -38,7 +38,6 @@ extension PresentationController{
 //MARK:tap手势
 extension PresentationController{
     @objc private func didClickCoverView(){
-        
             presentedViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -5,6 +5,9 @@
 //  Created by YOUNG on 16/9/4.
 //  Copyright © 2016年 Young. All rights reserved.
 //
+//App key：122711537
+//App secret：adf5c65bbeb223b613997c8b1df75918
+///https://api.weibo.com/oauth2/authorize?client_id=122711537&redirect_uri=www.baidu.com
 
 import UIKit
 
