@@ -13,15 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var defaultViewController : UIViewController?{
+      let isLogin : Bool = UserAccountViewModel.sharedInstance.islogin
+        return isLogin ? WelcomeViewController() : UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // 设置全局颜色
         UITabBar.appearance().tintColor = UIColor.orangeColor()
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()  
-//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        window?.rootViewController = MainTabbarController()
-//        window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = defaultViewController
+        window?.makeKeyAndVisible()
         return true
     }
 

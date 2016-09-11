@@ -62,7 +62,7 @@ extension OauthViewController : UIWebViewDelegate{
     }
    
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        SVProgressHUD.showErrorWithStatus("加载失败")
+       // SVProgressHUD.showErrorWithStatus("加载失败")
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -128,7 +128,19 @@ extension OauthViewController{
             }
             useraccount.screen_name = userInfoDict["screen_name"] as? String
             useraccount.avatar_large = userInfoDict["avatar_large"] as? String
-            print(useraccount)
+            //归档userAccount对象
+            //获取沙盒路径
+            let document = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+           let path = (document as NSString).stringByAppendingPathComponent("account.plist")
+            
+            print(path)
+            NSKeyedArchiver.archiveRootObject(useraccount, toFile: path)
+            //把单例对象设置
+            UserAccountViewModel.sharedInstance.account = useraccount
+            
+            self.dismissViewControllerAnimated(false, completion: {
+               UIApplication.sharedApplication().keyWindow?.rootViewController = WelcomeViewController()
+            })
         }
     }
 }

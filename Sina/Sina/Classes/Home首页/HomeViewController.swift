@@ -13,6 +13,8 @@ import UIKit
 
 class HomeViewController: BaseViewController{
 
+    lazy var statusArray : [Status] = [Status]()
+    
     private lazy var titleButton : TitleButton = TitleButton()
     
     private lazy var transintonAnimaiton : HomeTransitionAnimation = HomeTransitionAnimation { [weak self] (presented) -> () in
@@ -28,6 +30,8 @@ class HomeViewController: BaseViewController{
         }
         setupNavigationBar()
         setupTitleButton()
+        //加载首页数据
+        loadData()
     }
 }
 //MARK:首页navigationUI相关
@@ -63,12 +67,65 @@ extension HomeViewController{
         propover.modalPresentationStyle = .Custom
         let x =  UIScreen.mainScreen().bounds.size.width/2
         transintonAnimaiton.presentedFrame = CGRect(x: x-90, y: 60, width: 180, height:260)
-        //设置代理
+        //设置转场代理
         propover.transitioningDelegate = transintonAnimaiton
     
         presentViewController(propover, animated: true, completion: nil)
     }
 }
+//MARK:网络获取数据
+extension HomeViewController{
+    private func loadData(){
+        let urlstring = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let params = ["access_token":(UserAccountViewModel.sharedInstance.account?.access_token)!]
+        NetWorkTools.shareInstance.request(.GET, url: urlstring, parameters: params) { (result, error) in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            guard let results = result as? [String : AnyObject]else{
+                print("1")
+                return
+            }
+            
+            guard let resultDict = results["statuses"] as? [[String : AnyObject]] else{
+                print("2")
+                return
+            }
+            
+            for dict in resultDict{
+               let status =  Status(dict: dict)
+                self.statusArray.append(status)
+            }
+            //shua xin
+            self.tableView.reloadData()
+            
+        }
+    }
+}
+
+//MARK:date source
+extension HomeViewController{
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statusArray.count
+    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("homeCell")!
+        let model = statusArray[indexPath.row]
+        cell.textLabel?.text = model.text
+        return cell
+        
+    }
+}
+
+
+
+
+
+
+
 
 
 

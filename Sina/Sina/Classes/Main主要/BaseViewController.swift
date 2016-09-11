@@ -10,11 +10,14 @@ import UIKit
 
 class BaseViewController: UITableViewController {
     
-     var isLogin : Bool = false
+    var isLogin : Bool = UserAccountViewModel.sharedInstance.islogin
     
     lazy var  visitorView :VisitorView = VisitorView.visitorView()
     
     override func loadView() {
+        
+        
+        //判断展示什么view
         isLogin ? super.loadView() : setupVisitorView()
     }
     
@@ -26,7 +29,7 @@ class BaseViewController: UITableViewController {
 }
 
 
-//MARK:ui相关
+//MARK:访客试图ui相关
 extension BaseViewController{
     //添加访客试图
     func  setupVisitorView(){
