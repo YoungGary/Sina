@@ -25,7 +25,7 @@ class WelcomeViewController: UIViewController {
         
         //animation
         distance2bottom.constant = UIScreen.mainScreen().bounds.height-200
-        UIView.animateWithDuration(5.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(3.0, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 2.0, options: .CurveEaseInOut, animations: {
             self.view.layoutIfNeeded()
             }) { (finished) in
             UIApplication.sharedApplication().keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

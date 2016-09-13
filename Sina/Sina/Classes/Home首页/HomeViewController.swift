@@ -9,11 +9,13 @@
 //App secret：adf5c65bbeb223b613997c8b1df75918
 ///https://api.weibo.com/oauth2/authorize?client_id=122711537&redirect_uri=www.baidu.com
 
+///https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00GZJwAC02ssSI4a6a49308d0mhq4O
+
 import UIKit
 
 class HomeViewController: BaseViewController{
 
-    lazy var statusArray : [Status] = [Status]()
+    lazy var statusViewModels : [StatusViewModel] = [StatusViewModel]()
     
     private lazy var titleButton : TitleButton = TitleButton()
     
@@ -32,6 +34,9 @@ class HomeViewController: BaseViewController{
         setupTitleButton()
         //加载首页数据
         loadData()
+        //估算tableView的rowheight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
     }
 }
 //MARK:首页navigationUI相关
@@ -95,10 +100,11 @@ extension HomeViewController{
             }
             
             for dict in resultDict{
-               let status =  Status(dict: dict)
-                self.statusArray.append(status)
+                let status =  Status(dict: dict)
+                let viewModels = StatusViewModel(status: status)
+                self.statusViewModels.append(viewModels)
             }
-            //shua xin
+            //reload
             self.tableView.reloadData()
             
         }
@@ -109,12 +115,13 @@ extension HomeViewController{
 extension HomeViewController{
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusArray.count
+        return statusViewModels.count
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("homeCell")!
-        let model = statusArray[indexPath.row]
-        cell.textLabel?.text = model.text
+        let cell = tableView.dequeueReusableCellWithIdentifier("homeCell") as! HomeTableViewCell
+        let model = statusViewModels[indexPath.row]
+        cell.model = model
         return cell
         
     }
