@@ -54,7 +54,8 @@ class StatusViewModel: NSObject {
             vipImage = UIImage(named: "common_icon_membership_level\(mbrank)")
         }
         //处理weibo配图
-        if let pic_urlDicts = status.pic_urls{
+        let pic_dict = status.pic_urls!.count != 0 ? status.pic_urls : status.retweeted_status?.pic_urls
+        if let pic_urlDicts = pic_dict{
             for picDict in pic_urlDicts {
                 guard let urlString = picDict["thumbnail_pic"] else{
                     continue

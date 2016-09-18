@@ -17,6 +17,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLabelWidth: NSLayoutConstraint!
     @IBOutlet weak var collectionWidth: NSLayoutConstraint!
     @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var collection2bottom: NSLayoutConstraint!
+    @IBOutlet weak var retweed2content: NSLayoutConstraint!
     //MARK:cell中的控件
     @IBOutlet weak var iconImage: UIImageView!
     
@@ -34,7 +37,9 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var picCollectionView: PictureCollectionView!
     
+    @IBOutlet weak var retweed_label: UILabel!
     
+    @IBOutlet weak var bgView: UIView!
     
     //MARK:set model
     var model : StatusViewModel?{
@@ -69,11 +74,21 @@ class HomeTableViewCell: UITableViewCell {
             //传递collectionView的数据
             picCollectionView.picUrls = viewModel.picUrls
             //转发weibo的正文
-//            if viewModel.status?.retweeted_status != nil {
-//                retweed_label.text = viewModel.status?.retweeted_status?.text
-//            }else{
-//                 retweed_label.text = nil
-//            }
+            if viewModel.status?.retweeted_status != nil {
+                if let screenname = viewModel.status?.retweeted_status?.user?.screen_name, retweed_text = viewModel.status?.retweeted_status?.text {
+                    retweed_label.text = "@ \(screenname) :" + retweed_text;
+                }
+                //设置背景
+                bgView.hidden = false
+                //设置constant
+                retweed2content.constant = 15
+            }else{
+                    retweed_label.text = nil
+                    bgView.hidden = true
+                //设置constant
+                retweed2content.constant = 0
+
+            }
             
         }
     }
@@ -96,8 +111,12 @@ extension HomeTableViewCell{
 
         //没有图
         if count == 0 {
+            //constant
+            collection2bottom.constant = 0
             return CGSizeZero
         }
+        //constant
+        collection2bottom.constant = 10
         
         //单张图要返回图片的真实宽高
         if count == 1{
