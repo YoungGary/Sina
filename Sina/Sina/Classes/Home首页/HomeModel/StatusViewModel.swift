@@ -18,6 +18,8 @@ class StatusViewModel: NSObject {
     var verifiedImage : UIImage?
     //处理会员等级
     var vipImage : UIImage?
+    //处理weibo配图的url
+    var picUrls : [NSURL] = [NSURL]()
     
     init(status :Status){
         self.status = status
@@ -50,6 +52,16 @@ class StatusViewModel: NSObject {
         
         if mbrank > 0 && mbrank <= 6 {
             vipImage = UIImage(named: "common_icon_membership_level\(mbrank)")
+        }
+        //处理weibo配图
+        if let pic_urlDicts = status.pic_urls{
+            for picDict in pic_urlDicts {
+                guard let urlString = picDict["thumbnail_pic"] else{
+                    continue
+                }
+                picUrls.append(NSURL(string: urlString)!)
+                
+            }
         }
         
     }

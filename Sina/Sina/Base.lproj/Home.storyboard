@@ -135,7 +135,7 @@
                                             </variation>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抽象" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gu-vj-v5z">
-                                            <rect key="frame" x="10" y="65" width="200" height="117"/>
+                                            <rect key="frame" x="10" y="65" width="200" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="Nkq-dU-AVb"/>
                                             </constraints>
@@ -143,18 +143,59 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ys-Od-do6" customClass="PictureCollectionView" customModule="Sina" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="106" width="207" height="76"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="0Dv-mF-N1S"/>
+                                                <constraint firstAttribute="width" constant="207" id="lQg-js-Lot"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1m7-e8-J5m">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection" id="jKf-2K-mAb" customClass="picCollectionViewCell" customModule="Sina" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eAs-Bn-dfK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="eAs-Bn-dfK" secondAttribute="bottom" id="5l1-za-Hop"/>
+                                                        <constraint firstItem="eAs-Bn-dfK" firstAttribute="leading" secondItem="jKf-2K-mAb" secondAttribute="leading" id="Fse-BT-fhw"/>
+                                                        <constraint firstItem="eAs-Bn-dfK" firstAttribute="top" secondItem="jKf-2K-mAb" secondAttribute="top" id="ZPj-7n-HDf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eAs-Bn-dfK" secondAttribute="trailing" id="cWj-mG-fC5"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="iconView" destination="eAs-Bn-dfK" id="PiB-WI-rg0"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="KnN-WN-scl" firstAttribute="centerY" secondItem="rus-nE-gRZ" secondAttribute="centerY" id="7Vx-Ch-cj1"/>
                                         <constraint firstItem="rus-nE-gRZ" firstAttribute="leading" secondItem="BKf-H6-IOu" secondAttribute="trailing" constant="15" id="9LG-YI-l5n"/>
                                         <constraint firstItem="prX-Zl-eTV" firstAttribute="bottom" secondItem="BKf-H6-IOu" secondAttribute="bottom" id="AnH-tn-kxL"/>
                                         <constraint firstItem="BKf-H6-IOu" firstAttribute="leading" secondItem="AN7-3s-bSJ" secondAttribute="leading" constant="10" id="Cgc-MF-EYb"/>
-                                        <constraint firstItem="j51-FJ-Tb3" firstAttribute="top" secondItem="8gu-vj-v5z" secondAttribute="bottom" constant="20" id="I37-em-UyZ"/>
                                         <constraint firstItem="rus-nE-gRZ" firstAttribute="top" secondItem="BKf-H6-IOu" secondAttribute="top" id="Lq4-UB-41J"/>
                                         <constraint firstItem="prX-Zl-eTV" firstAttribute="leading" secondItem="rus-nE-gRZ" secondAttribute="leading" id="So8-yQ-gDY"/>
+                                        <constraint firstItem="0Ys-Od-do6" firstAttribute="leading" secondItem="BKf-H6-IOu" secondAttribute="leading" id="THs-H7-Zb5"/>
+                                        <constraint firstItem="j51-FJ-Tb3" firstAttribute="top" secondItem="0Ys-Od-do6" secondAttribute="bottom" priority="999" constant="20" id="Tvz-hn-h0y"/>
                                         <constraint firstItem="KnN-WN-scl" firstAttribute="leading" secondItem="rus-nE-gRZ" secondAttribute="trailing" constant="15.5" id="VZB-ni-nRk"/>
                                         <constraint firstItem="j51-FJ-Tb3" firstAttribute="leading" secondItem="AN7-3s-bSJ" secondAttribute="leading" id="abt-9Z-BbF"/>
                                         <constraint firstItem="xjm-WD-jV5" firstAttribute="trailing" secondItem="BKf-H6-IOu" secondAttribute="trailing" id="eM9-nW-9Pj"/>
+                                        <constraint firstItem="0Ys-Od-do6" firstAttribute="top" secondItem="8gu-vj-v5z" secondAttribute="bottom" constant="20" id="enY-dQ-aHP"/>
                                         <constraint firstItem="xjm-WD-jV5" firstAttribute="bottom" secondItem="BKf-H6-IOu" secondAttribute="bottom" id="g7T-Vk-kVS"/>
                                         <constraint firstItem="MHD-Td-9Sh" firstAttribute="leading" secondItem="prX-Zl-eTV" secondAttribute="trailing" constant="20" id="gVN-wE-uRT"/>
                                         <constraint firstItem="MHD-Td-9Sh" firstAttribute="bottom" secondItem="prX-Zl-eTV" secondAttribute="bottom" id="ibN-ce-6no"/>
@@ -166,10 +207,13 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="collectionHeight" destination="0Dv-mF-N1S" id="FTd-PC-qDy"/>
+                                    <outlet property="collectionWidth" destination="lQg-js-Lot" id="FKv-Kg-hkP"/>
                                     <outlet property="contentLabel" destination="8gu-vj-v5z" id="gdU-oR-ElS"/>
                                     <outlet property="contentLabelWidth" destination="Nkq-dU-AVb" id="l72-YI-JxC"/>
                                     <outlet property="created_at" destination="prX-Zl-eTV" id="5SZ-Uq-OUl"/>
                                     <outlet property="iconImage" destination="BKf-H6-IOu" id="nAx-WF-FcC"/>
+                                    <outlet property="picCollectionView" destination="0Ys-Od-do6" id="m2Y-5A-EOX"/>
                                     <outlet property="screenName" destination="rus-nE-gRZ" id="FNX-jL-WjP"/>
                                     <outlet property="source" destination="MHD-Td-9Sh" id="INv-o0-E7f"/>
                                     <outlet property="verifiedImage" destination="xjm-WD-jV5" id="3vx-DM-RPW"/>
@@ -186,7 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pp-vx-CTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="-375"/>
+            <point key="canvasLocation" x="923" y="-367"/>
         </scene>
         <!--首页-->
         <scene sceneID="dUJ-kZ-Gb1">

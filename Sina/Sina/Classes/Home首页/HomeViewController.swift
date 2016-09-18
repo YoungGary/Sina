@@ -12,6 +12,7 @@
 ///https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00GZJwAC02ssSI4a6a49308d0mhq4O
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: BaseViewController{
 
@@ -32,11 +33,13 @@ class HomeViewController: BaseViewController{
         }
         setupNavigationBar()
         setupTitleButton()
+        
         //加载首页数据
         loadData()
+        
         //估算tableView的rowheight
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 400
     }
 }
 //MARK:首页navigationUI相关
@@ -104,9 +107,27 @@ extension HomeViewController{
                 let viewModels = StatusViewModel(status: status)
                 self.statusViewModels.append(viewModels)
             }
-            //reload
-            self.tableView.reloadData()
             
+            //cache picture
+            self.cachePictureWithModels(self.statusViewModels)
+            
+        }
+    }
+    //MARK: 缓存单张配图
+    private func cachePictureWithModels(viewModels : [StatusViewModel]){
+        let group = dispatch_group_create()
+        for viewModel in viewModels {
+            for imgUrl in viewModel.picUrls{
+                dispatch_group_enter(group)
+                SDWebImageManager.sharedManager().downloadImageWithURL(imgUrl, options: [], progress: nil, completed: { (_, _, _, _, _) in
+                    
+                    dispatch_group_leave(group)
+                })
+            }
+        }
+        dispatch_group_notify(group, dispatch_get_main_queue()) {
+            //刷新表格
+           self.tableView.reloadData()
         }
     }
 }

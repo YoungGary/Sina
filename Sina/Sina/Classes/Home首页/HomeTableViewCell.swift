@@ -10,10 +10,13 @@ import UIKit
 import SDWebImage
 
 private let edgeMargin : CGFloat = 10
+private let imageMargin : CGFloat = 10
 
 class HomeTableViewCell: UITableViewCell {
     //MARK:contentLabel的宽度的constant
     @IBOutlet weak var contentLabelWidth: NSLayoutConstraint!
+    @IBOutlet weak var collectionWidth: NSLayoutConstraint!
+    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
     //MARK:cell中的控件
     @IBOutlet weak var iconImage: UIImageView!
     
@@ -28,6 +31,11 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var source: UILabel!//来源
     
     @IBOutlet weak var vipImage: UIImageView!
+    
+    @IBOutlet weak var picCollectionView: PictureCollectionView!
+    
+    
+    
     //MARK:set model
     var model : StatusViewModel?{
         didSet{
@@ -53,17 +61,85 @@ class HomeTableViewCell: UITableViewCell {
             //会员显示橙色
             screenName.textColor = viewModel.vipImage == nil ? UIColor.blackColor() : UIColor.orangeColor()
             
+            //处理collection的height和width
+            let collectionSize = calculateCollectionSizeWithImageCount(viewModel.picUrls.count)
+            collectionWidth.constant = collectionSize.width
+            collectionHeight.constant = collectionSize.height
+            
+            //传递collectionView的数据
+            picCollectionView.picUrls = viewModel.picUrls
+            //转发weibo的正文
+//            if viewModel.status?.retweeted_status != nil {
+//                retweed_label.text = viewModel.status?.retweeted_status?.text
+//            }else{
+//                 retweed_label.text = nil
+//            }
+            
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //根据屏幕的宽来确定正文的宽度
         contentLabelWidth.constant = UIScreen.mainScreen().bounds.width - 2 * edgeMargin
     }
-
-   
-
 }
+
+//处理collectionVIEW的size
+extension HomeTableViewCell{
+    private func calculateCollectionSizeWithImageCount(count : Int) ->CGSize{
+        //计算image的宽高
+        let imageWidthHeight = (UIScreen.mainScreen().bounds.width - 2 * imageMargin - 2 * edgeMargin)/3
+        
+        //取到collectionView 的flow layout
+        let layout = picCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+
+        //没有图
+        if count == 0 {
+            return CGSizeZero
+        }
+        
+        //单张图要返回图片的真实宽高
+        if count == 1{
+            let picUrlstr = model?.picUrls.first?.absoluteString
+            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(picUrlstr)
+            //sdwebImage默认讲下载的图片压缩了
+            let imageSize = CGSize(width: image.size.width * 2, height: image.size.height * 2)
+            //设置itemsize
+            layout.itemSize = imageSize
+            return imageSize
+        }
+        
+        //其他count的itemsize
+        layout.itemSize = CGSize(width: imageWidthHeight, height: imageWidthHeight)
+        
+        //4个图
+        if count == 4 {
+            let collectionWidthHeight = 2 * imageWidthHeight + imageMargin
+            return CGSize(width: collectionWidthHeight, height: collectionWidthHeight)
+        }
+        
+        //其他
+        let rows = CGFloat((count - 1)/3 + 1)
+        let viewWidth = UIScreen.mainScreen().bounds.width - 2 * edgeMargin
+        let viewHeight : CGFloat = rows * imageWidthHeight + (rows - 1) * imageMargin
+        return CGSize(width: viewWidth, height: viewHeight)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
