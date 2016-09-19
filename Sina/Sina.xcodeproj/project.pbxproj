@@ -18,6 +18,10 @@
 		6F0E26841D7C770F00DDB0AB /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0E26831D7C770F00DDB0AB /* Discover.storyboard */; };
 		6F0E26871D7C772D00DDB0AB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0E26851D7C772D00DDB0AB /* Profile.storyboard */; };
 		6F0E268B1D7C861000DDB0AB /* UIbuttonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E268A1D7C861000DDB0AB /* UIbuttonExtension.swift */; };
+		6F1F91521D8FD9690067C289 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F91501D8FD9690067C289 /* ComposeViewController.swift */; };
+		6F1F91531D8FD9690067C289 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F1F91511D8FD9690067C289 /* ComposeViewController.xib */; };
+		6F1F91551D900B450067C289 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F91541D900B450067C289 /* TitleView.swift */; };
+		6F1F91571D900F930067C289 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1F91561D900F930067C289 /* ComposeTextView.swift */; };
 		6F2B710A1D7DA0D2003059F7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2B71091D7DA0D2003059F7 /* BaseViewController.swift */; };
 		6F2B710D1D7DA258003059F7 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2B710C1D7DA258003059F7 /* VisitorView.swift */; };
 		6F2B710F1D7DA2DD003059F7 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2B710E1D7DA2DD003059F7 /* VisitorView.xib */; };
@@ -60,6 +64,10 @@
 		6F0E26831D7C770F00DDB0AB /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Discover.storyboard; path = ../../Discover.storyboard; sourceTree = "<group>"; };
 		6F0E26861D7C772D00DDB0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		6F0E268A1D7C861000DDB0AB /* UIbuttonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIbuttonExtension.swift; sourceTree = "<group>"; };
+		6F1F91501D8FD9690067C289 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		6F1F91511D8FD9690067C289 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		6F1F91541D900B450067C289 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		6F1F91561D900F930067C289 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		6F2B71091D7DA0D2003059F7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6F2B710C1D7DA258003059F7 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		6F2B710E1D7DA2DD003059F7 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
@@ -121,6 +129,17 @@
 				6FFA2D1F1D8698F800CCB12E /* NSDate+Extension.swift */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		6F1F914F1D8FD9360067C289 /* compose发布 */ = {
+			isa = PBXGroup;
+			children = (
+				6F1F91501D8FD9690067C289 /* ComposeViewController.swift */,
+				6F1F91511D8FD9690067C289 /* ComposeViewController.xib */,
+				6F1F91541D900B450067C289 /* TitleView.swift */,
+				6F1F91561D900F930067C289 /* ComposeTextView.swift */,
+			);
+			path = "compose发布";
 			sourceTree = "<group>";
 		};
 		6F2B710B1D7DA22C003059F7 /* visitor */ = {
@@ -197,6 +216,7 @@
 		6F9CA1941D7C030700E053B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6F1F914F1D8FD9360067C289 /* compose发布 */,
 				6F9CA1971D7C030700E053B3 /* Main主要 */,
 				6F9CA1961D7C030700E053B3 /* Home首页 */,
 				6F9CA1981D7C030700E053B3 /* Message消息 */,
@@ -341,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1F91531D8FD9690067C289 /* ComposeViewController.xib in Resources */,
 				6F9CA18D1D7BFF6E00E053B3 /* LaunchScreen.storyboard in Resources */,
 				6F9CA18A1D7BFF6E00E053B3 /* Assets.xcassets in Resources */,
 				6F0E26871D7C772D00DDB0AB /* Profile.storyboard in Resources */,
@@ -416,6 +437,8 @@
 				6F4829F91D81960200864EDD /* OauthViewController.swift in Sources */,
 				6F9CA1831D7BFF6E00E053B3 /* AppDelegate.swift in Sources */,
 				6F2B71111D7F0910003059F7 /* UIBarButtonItem+Extension.swift in Sources */,
+				6F1F91551D900B450067C289 /* TitleView.swift in Sources */,
+				6F1F91521D8FD9690067C289 /* ComposeViewController.swift in Sources */,
 				6F0E26721D7C6EB300DDB0AB /* MainTabbarController.swift in Sources */,
 				6F8AF8A51D87C944007676FB /* HomeTableViewCell.swift in Sources */,
 				6FFA2D201D8698F800CCB12E /* NSDate+Extension.swift in Sources */,
@@ -431,6 +454,7 @@
 				6F2B710A1D7DA0D2003059F7 /* BaseViewController.swift in Sources */,
 				6F3220F81D7FEFB50084E40C /* PresentationController.swift in Sources */,
 				6FFA2D241D86DD7F00CCB12E /* StatusViewModel.swift in Sources */,
+				6F1F91571D900F930067C289 /* ComposeTextView.swift in Sources */,
 				6F3220FA1D8006EE0084E40C /* HomeTransitionAnimation.swift in Sources */,
 				6F2B710D1D7DA258003059F7 /* VisitorView.swift in Sources */,
 				6F0E26781D7C756100DDB0AB /* DiscoverViewController.swift in Sources */,

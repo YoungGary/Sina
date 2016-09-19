@@ -26,6 +26,12 @@
                                                 <constraint firstAttribute="height" constant="40" id="AJB-yo-uBq"/>
                                                 <constraint firstAttribute="width" constant="40" id="enP-Ig-bHy"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回是倒萨大阿斯顿 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rus-nE-gRZ">
                                             <rect key="frame" x="65" y="10" width="140.5" height="21"/>
@@ -257,7 +263,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pp-vx-CTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088" y="-367"/>
+            <point key="canvasLocation" x="810" y="-367"/>
         </scene>
         <!--首页-->
         <scene sceneID="dUJ-kZ-Gb1">

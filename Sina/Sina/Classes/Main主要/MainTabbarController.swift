@@ -55,7 +55,9 @@ extension MainTabbarController{
 //MARK: 点击事件的监听
 extension MainTabbarController{
     func composeButtonClick() {
-        print("click")
+        let composeVC = ComposeViewController()
+        let composeNavi = UINavigationController(rootViewController: composeVC)
+        presentViewController(composeNavi, animated: true, completion: nil)
     }
 }
 

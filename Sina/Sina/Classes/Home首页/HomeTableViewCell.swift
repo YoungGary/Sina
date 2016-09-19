@@ -60,7 +60,12 @@ class HomeTableViewCell: UITableViewCell {
             //正文label
             contentLabel.text = viewModel.status?.text
             // set 来源
-            source.text = viewModel.sourceText
+            if  let weiboSource = viewModel.sourceText {
+                source.text = "来自" + weiboSource
+            }else{
+                source.text = nil
+            }
+            
             //vip
             vipImage.image = viewModel.vipImage
             //会员显示橙色
@@ -73,6 +78,7 @@ class HomeTableViewCell: UITableViewCell {
             
             //传递collectionView的数据
             picCollectionView.picUrls = viewModel.picUrls
+            
             //转发weibo的正文
             if viewModel.status?.retweeted_status != nil {
                 if let screenname = viewModel.status?.retweeted_status?.user?.screen_name, retweed_text = viewModel.status?.retweeted_status?.text {
