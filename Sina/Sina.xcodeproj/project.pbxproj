@@ -44,6 +44,9 @@
 		6F9CA1881D7BFF6E00E053B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CA1861D7BFF6E00E053B3 /* Main.storyboard */; };
 		6F9CA18A1D7BFF6E00E053B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CA1891D7BFF6E00E053B3 /* Assets.xcassets */; };
 		6F9CA18D1D7BFF6E00E053B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CA18B1D7BFF6E00E053B3 /* LaunchScreen.storyboard */; };
+		6FCBF3571D910A860013C344 /* PictureAddCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBF3561D910A860013C344 /* PictureAddCollectionView.swift */; };
+		6FCBF35B1D91128A0013C344 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */; };
+		6FCBF35C1D91128A0013C344 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */; };
 		6FFA2D201D8698F800CCB12E /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA2D1F1D8698F800CCB12E /* NSDate+Extension.swift */; };
 		6FFA2D221D86A62800CCB12E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA2D211D86A62800CCB12E /* User.swift */; };
 		6FFA2D241D86DD7F00CCB12E /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA2D231D86DD7F00CCB12E /* StatusViewModel.swift */; };
@@ -92,6 +95,9 @@
 		6F9CA1891D7BFF6E00E053B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9CA18C1D7BFF6E00E053B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F9CA18E1D7BFF6E00E053B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FCBF3561D910A860013C344 /* PictureAddCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureAddCollectionView.swift; path = ../PictureAddCollectionView.swift; sourceTree = "<group>"; };
+		6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
+		6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
 		6FFA2D1F1D8698F800CCB12E /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6FFA2D211D86A62800CCB12E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6FFA2D231D86DD7F00CCB12E /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 		6F1F914F1D8FD9360067C289 /* compose发布 */ = {
 			isa = PBXGroup;
 			children = (
+				6FCBF3581D9111ED0013C344 /* pickImage */,
 				6F1F91501D8FD9690067C289 /* ComposeViewController.swift */,
 				6F1F91511D8FD9690067C289 /* ComposeViewController.xib */,
 				6F1F91541D900B450067C289 /* TitleView.swift */,
@@ -283,6 +290,16 @@
 			path = "Profile我";
 			sourceTree = "<group>";
 		};
+		6FCBF3581D9111ED0013C344 /* pickImage */ = {
+			isa = PBXGroup;
+			children = (
+				6FCBF3561D910A860013C344 /* PictureAddCollectionView.swift */,
+				6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */,
+				6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */,
+			);
+			path = pickImage;
+			sourceTree = "<group>";
+		};
 		999AC1BCDF4B3EB893899C09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +385,7 @@
 				6F4829FA1D81960200864EDD /* OauthViewController.xib in Resources */,
 				6F0E267F1D7C76C400DDB0AB /* Message.storyboard in Resources */,
 				6F44AB721D852B90007FDEC2 /* WelcomeViewController.xib in Resources */,
+				6FCBF35C1D91128A0013C344 /* PicCollectionViewCell.xib in Resources */,
 				6F2B711B1D7F2001003059F7 /* PopoverViewController.xib in Resources */,
 				6F0E26821D7C76DF00DDB0AB /* null.storyboard in Resources */,
 				6F9CA1881D7BFF6E00E053B3 /* Main.storyboard in Resources */,
@@ -435,6 +453,7 @@
 				6F0E267A1D7C756D00DDB0AB /* ProfileViewController.swift in Sources */,
 				6FFFF3A61D83EAE200E77776 /* UserAccountViewModel.swift in Sources */,
 				6F4829F91D81960200864EDD /* OauthViewController.swift in Sources */,
+				6FCBF35B1D91128A0013C344 /* PicCollectionViewCell.swift in Sources */,
 				6F9CA1831D7BFF6E00E053B3 /* AppDelegate.swift in Sources */,
 				6F2B71111D7F0910003059F7 /* UIBarButtonItem+Extension.swift in Sources */,
 				6F1F91551D900B450067C289 /* TitleView.swift in Sources */,
@@ -444,6 +463,7 @@
 				6FFA2D201D8698F800CCB12E /* NSDate+Extension.swift in Sources */,
 				6F2B711A1D7F2001003059F7 /* PopoverViewController.swift in Sources */,
 				6F2B71131D7F0CD7003059F7 /* TitleButton.swift in Sources */,
+				6FCBF3571D910A860013C344 /* PictureAddCollectionView.swift in Sources */,
 				6F8AF8A71D8823CB007676FB /* PictureCollectionView.swift in Sources */,
 				6F0E26761D7C755500DDB0AB /* MessageViewController.swift in Sources */,
 				6FFA2D221D86A62800CCB12E /* User.swift in Sources */,
