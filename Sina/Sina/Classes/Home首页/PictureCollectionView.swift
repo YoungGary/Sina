@@ -17,6 +17,7 @@ class PictureCollectionView: UICollectionView,UICollectionViewDataSource{
     }
     override func awakeFromNib() {
         dataSource = self
+        
     }
 
 }

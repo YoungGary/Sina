@@ -74,7 +74,7 @@ class HomeTableViewCell: UITableViewCell {
             //处理collection的height和width
             let collectionSize = calculateCollectionSizeWithImageCount(viewModel.picUrls.count)
             collectionWidth.constant = collectionSize.width
-            collectionHeight.constant = collectionSize.height
+            collectionHeight.constant = collectionSize.height 
             
             //传递collectionView的数据
             picCollectionView.picUrls = viewModel.picUrls
@@ -114,7 +114,6 @@ extension HomeTableViewCell{
         
         //取到collectionView 的flow layout
         let layout = picCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-
         //没有图
         if count == 0 {
             //constant

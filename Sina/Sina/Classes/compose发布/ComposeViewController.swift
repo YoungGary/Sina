@@ -25,6 +25,8 @@ class ComposeViewController: UIViewController {
    
     @IBOutlet weak var collectionViewHeightCons: NSLayoutConstraint!
     
+    @IBOutlet weak var emotionButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,14 +51,19 @@ class ComposeViewController: UIViewController {
 
 //MARK:UI相关
 extension ComposeViewController{
+    
     private func setupUI(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: #selector(ComposeViewController.didClickCancelButton))
          navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: .Plain, target: self, action: #selector(ComposeViewController.didClickComposeButton))
         navigationItem.rightBarButtonItem?.enabled = false
         navigationItem.titleView = titleView
+        
         //监听toolbar的图片按钮
         addPicButton.addTarget(self, action: #selector(ComposeViewController.didClickAddPictureButton), forControlEvents: .TouchUpInside)
+        //监听表情键盘按钮
+        emotionButton.addTarget(self, action: #selector(ComposeViewController.didClickEmotionButton), forControlEvents: .TouchUpInside)
     }
+    
     private func setupNotifications(){
         //键盘frame改变的通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComposeViewController.keyboardDidChangeFrame(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
@@ -69,13 +76,16 @@ extension ComposeViewController{
 
 //MARK:监听点击事件
 extension ComposeViewController{
-    @objc private func  didClickCancelButton(){//取消
+    //取消
+    @objc private func  didClickCancelButton(){
         dismissViewControllerAnimated(true, completion: nil)
     }
-    @objc private func  didClickComposeButton(){//发布
+    //发布
+    @objc private func  didClickComposeButton(){
         
     }
-    @objc private func  keyboardDidChangeFrame(noti:NSNotification){//通知监听
+    //通知监听
+    @objc private func  keyboardDidChangeFrame(noti:NSNotification){
         /*
          Optional([UIKeyboardFrameBeginUserInfoKey: NSRect: {{0, 736}, {414, 271}}, UIKeyboardCenterEndUserInfoKey: NSPoint: {207, 600.5}, UIKeyboardBoundsUserInfoKey: NSRect: {{0, 0}, {414, 271}}, UIKeyboardFrameEndUserInfoKey: NSRect: {{0, 465}, {414, 271}}, UIKeyboardAnimationDurationUserInfoKey: 0.25, UIKeyboardCenterBeginUserInfoKey: NSPoint: {207, 871.5}, UIKeyboardAnimationCurveUserInfoKey: 7, UIKeyboardIsLocalUserInfoKey: 1])
          */
@@ -129,6 +139,15 @@ extension ComposeViewController{
         images.removeAtIndex(index)
         //赋值
         picAddCollectionView.images = images
+    }
+    //表情键盘按钮 切换键盘
+    @objc private func didClickEmotionButton(){
+        
+        textView.resignFirstResponder()
+        //change keyboard
+        let emotion = EmotionViewController()
+        textView.inputView = textView.inputView != nil ? nil : emotion.view
+        textView.becomeFirstResponder()
     }
 }
 

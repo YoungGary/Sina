@@ -9,6 +9,7 @@
                 <outlet property="addPicButton" destination="x7D-1H-TGk" id="yVG-ip-f5t"/>
                 <outlet property="bottomCons" destination="RAN-qH-a1f" id="eWe-RO-sFy"/>
                 <outlet property="collectionViewHeightCons" destination="vc9-8A-FHP" id="fuQ-2E-Dgo"/>
+                <outlet property="emotionButton" destination="swI-ag-OQm" id="5pu-17-CsV"/>
                 <outlet property="picAddCollectionView" destination="Zuc-pc-oG6" id="wej-Il-uXF"/>
                 <outlet property="textView" destination="d9S-4f-0Q5" id="8nC-Rn-SFx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
