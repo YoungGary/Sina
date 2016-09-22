@@ -80,8 +80,21 @@ extension ComposeViewController{
     @objc private func  didClickCancelButton(){
         dismissViewControllerAnimated(true, completion: nil)
     }
-    //发布
+    //发送微博
     @objc private func  didClickComposeButton(){
+        //获取属性字符串
+        let attrStr = NSMutableAttributedString(attributedString: textView.attributedText)
+        
+        let range  = NSRange(location: 0, length: attrStr.length)
+        
+        attrStr.enumerateAttributesInRange(range, options: []) { (dict, range, _) in
+            if let textAttachment =  dict["NSAttachment"] as? EmotionTextAttachment{
+                attrStr.replaceCharactersInRange(range, withString: textAttachment.chs!)
+            }
+        }
+        print(attrStr.string)
+        
+        
         
     }
     //通知监听
@@ -145,9 +158,51 @@ extension ComposeViewController{
         
         textView.resignFirstResponder()
         //change keyboard
-        let emotion = EmotionViewController()
+        let emotion = EmotionViewController { [weak self] (emotion) in
+            self?.insertEmotion(emotion)//insert
+            self?.textViewDidChange((self?.textView)!)
+        }
         textView.inputView = textView.inputView != nil ? nil : emotion.view
         textView.becomeFirstResponder()
+    }
+    //插入表情
+    private func insertEmotion(emotion : Emotion){
+        //空表情
+        if emotion.isEmpty {
+            return
+        }
+        //删除键
+        if emotion.isRemove {
+            textView.deleteBackward()
+            return
+        }
+        //emoji
+        if emotion.emojiCode != nil {
+            let textRange = textView.selectedTextRange!
+            textView.replaceRange(textRange, withText: emotion.emojiCode!)
+            return
+        }
+        //普通表情 图文混排
+        let attach = EmotionTextAttachment()
+        
+        attach.chs = emotion.chs
+        attach.image = UIImage(contentsOfFile: emotion.pngPath!)
+        let font = textView.font
+        attach.bounds = CGRect(x: 0, y: -4, width: (font?.lineHeight)!, height: (font?.lineHeight)!)
+        let attrImage = NSAttributedString(attachment: attach)
+        
+        let mutaAttrStr = NSMutableAttributedString(attributedString: textView.attributedText)
+        
+        let range = textView.selectedRange
+        
+        mutaAttrStr.replaceCharactersInRange(range, withAttributedString: attrImage)
+        
+        textView.attributedText = mutaAttrStr
+        
+        textView.font = font
+        
+        textView.selectedRange = NSRange(location: range.location + 1, length: 0)
+        
     }
 }
 

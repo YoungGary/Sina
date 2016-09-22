@@ -50,6 +50,7 @@
 		6FB876231D926C03003B1573 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB876221D926C03003B1573 /* EmoticonManager.swift */; };
 		6FB876261D926C5D003B1573 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB876251D926C5D003B1573 /* EmoticonPackage.swift */; };
 		6FB876281D926C85003B1573 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB876271D926C85003B1573 /* Emotion.swift */; };
+		6FBD77641D93CDFD0096E8FC /* EmotionTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD77631D93CDFD0096E8FC /* EmotionTextAttachment.swift */; };
 		6FCBF3571D910A860013C344 /* PictureAddCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBF3561D910A860013C344 /* PictureAddCollectionView.swift */; };
 		6FCBF35B1D91128A0013C344 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */; };
 		6FCBF35C1D91128A0013C344 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */; };
@@ -107,6 +108,7 @@
 		6FB876221D926C03003B1573 /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmoticonManager.swift; path = ../EmoticonManager.swift; sourceTree = "<group>"; };
 		6FB876251D926C5D003B1573 /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
 		6FB876271D926C85003B1573 /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		6FBD77631D93CDFD0096E8FC /* EmotionTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionTextAttachment.swift; sourceTree = "<group>"; };
 		6FCBF3561D910A860013C344 /* PictureAddCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureAddCollectionView.swift; path = ../PictureAddCollectionView.swift; sourceTree = "<group>"; };
 		6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				6F1F91511D8FD9690067C289 /* ComposeViewController.xib */,
 				6F1F91541D900B450067C289 /* TitleView.swift */,
 				6F1F91561D900F930067C289 /* ComposeTextView.swift */,
+				6FBD77631D93CDFD0096E8FC /* EmotionTextAttachment.swift */,
 			);
 			path = "compose发布";
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				6F3220FA1D8006EE0084E40C /* HomeTransitionAnimation.swift in Sources */,
 				6F2B710D1D7DA258003059F7 /* VisitorView.swift in Sources */,
 				6F0E26781D7C756100DDB0AB /* DiscoverViewController.swift in Sources */,
+				6FBD77641D93CDFD0096E8FC /* EmotionTextAttachment.swift in Sources */,
 				6FB876281D926C85003B1573 /* Emotion.swift in Sources */,
 				6F0E268B1D7C861000DDB0AB /* UIbuttonExtension.swift in Sources */,
 				6F44AB711D852B90007FDEC2 /* WelcomeViewController.swift in Sources */,

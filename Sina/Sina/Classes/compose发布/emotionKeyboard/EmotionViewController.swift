@@ -16,6 +16,19 @@ class EmotionViewController: UIViewController {
     
     private lazy var manager : EmoticonManager = EmoticonManager()
     
+    //定义个闭包 保存选择的表情
+    var emotionCallBack : (emotion : Emotion) -> ()
+    
+    //override init
+    init(emotionCallBack : (emotion : Emotion) -> ()){
+        self.emotionCallBack  = emotionCallBack
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -81,7 +94,7 @@ extension EmotionViewController{
         
         // 2.根据tag获取到当前组
         let indexPath = NSIndexPath(forItem: 0, inSection: tag)
-        print(indexPath)
+        
         // 3.滚动到对应的位置
         emoCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: true)
     }
@@ -117,6 +130,8 @@ extension EmotionViewController : UICollectionViewDataSource,UICollectionViewDel
         
         // 2.将点击的表情插入最近分组中
         insertRecentlyEmoticon(emoticon)
+        //将选择的表情回调给vc
+        emotionCallBack(emotion: emoticon)
     }
     
     private func insertRecentlyEmoticon(emoticon : Emotion) {
