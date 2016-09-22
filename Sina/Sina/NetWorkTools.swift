@@ -52,7 +52,24 @@ extension NetWorkTools{
     }
 }
 
-
+extension NetWorkTools  {//待图片发微博
+    func sendStatusWithPic(text : String , image : UIImage, isSuccess : (isSuccess : Bool)->())  {
+            let url = "https://api.weibo.com/2/statuses/upload.json"
+            let params = ["access_token" : (UserAccountViewModel.sharedInstance.account?.access_token)!,"status" : text]
+        
+       
+            POST(url, parameters: params, constructingBodyWithBlock: { (formData) in
+                if let imageData = UIImageJPEGRepresentation(image, 0.5) {
+                    formData.appendPartWithFileData(imageData, name: "pic", fileName: "123.png", mimeType: "image/png")
+                }
+                }, progress: nil, success: { (_, _) in
+                    isSuccess(isSuccess: true)
+                }) { (_, error) in
+                    print(error)
+            }
+        
+    }
+}
 
 
 

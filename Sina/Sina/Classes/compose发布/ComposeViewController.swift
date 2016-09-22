@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
     
@@ -82,6 +83,8 @@ extension ComposeViewController{
     }
     //发送微博
     @objc private func  didClickComposeButton(){
+        //resign 
+        textView.resignFirstResponder()
         //获取属性字符串
         let attrStr = NSMutableAttributedString(attributedString: textView.attributedText)
         
@@ -92,9 +95,37 @@ extension ComposeViewController{
                 attrStr.replaceCharactersInRange(range, withString: textAttachment.chs!)
             }
         }
-        print(attrStr.string)
+        //print(attrStr.string)
         
+        //REQUEST
         
+        if let image = images.first {
+            
+            NetWorkTools.shareInstance.sendStatusWithPic(attrStr.string, image: image, isSuccess: { (isSuccess : Bool) in
+                if isSuccess == true{
+                    //chenggong
+                    SVProgressHUD.showSuccessWithStatus("发送成功")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }else{
+                    SVProgressHUD.showErrorWithStatus("发送失败")
+                }
+            })
+            
+        }else{
+            let url = "https://api.weibo.com/2/statuses/update.json"
+            let params = ["access_token" : UserAccountViewModel.sharedInstance.account?.access_token,"status" : attrStr.string]
+            
+            
+            NetWorkTools.shareInstance.request(.POST, url: url, parameters: params as! [String : String]) { (result, error) in
+                if error == nil {
+                    //chenggong
+                    SVProgressHUD.showSuccessWithStatus("发送成功")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }else{
+                    SVProgressHUD.showErrorWithStatus("发送失败")
+                }
+            }
+        }
         
     }
     //通知监听
