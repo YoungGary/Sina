@@ -51,14 +51,20 @@ class HomeTableViewCell: UITableViewCell {
             let iconUrl = NSURL(string: (viewModel.status?.user?.profile_image_url)!)
             let placeHolderImage = UIImage(named: "avatar_default_small")
             iconImage.sd_setImageWithURL(iconUrl, placeholderImage: placeHolderImage)
+            
             //set screen name
             screenName.text = viewModel.status?.user?.screen_name
+            
             //  set created_at
             created_at.text = viewModel.createText
+            
             //set 认证图片
             verifiedImage.image = viewModel.verifiedImage
-            //正文label
-            contentLabel.text = viewModel.status?.text
+            
+            //正文label 图文混排
+            //contentLabel.text = viewModel.status?.text
+            contentLabel.attributedText = FindEmoticon.shareIntance.findAttrString(viewModel.status?.text, font: contentLabel.font)
+            
             // set 来源
             if  let weiboSource = viewModel.sourceText {
                 source.text = "来自" + weiboSource
@@ -68,6 +74,7 @@ class HomeTableViewCell: UITableViewCell {
             
             //vip
             vipImage.image = viewModel.vipImage
+            
             //会员显示橙色
             screenName.textColor = viewModel.vipImage == nil ? UIColor.blackColor() : UIColor.orangeColor()
             
@@ -79,10 +86,11 @@ class HomeTableViewCell: UITableViewCell {
             //传递collectionView的数据
             picCollectionView.picUrls = viewModel.picUrls
             
-            //转发weibo的正文
+            //转发weibo的正文 图文混排
             if viewModel.status?.retweeted_status != nil {
                 if let screenname = viewModel.status?.retweeted_status?.user?.screen_name, retweed_text = viewModel.status?.retweeted_status?.text {
-                    retweed_label.text = "@ \(screenname) :" + retweed_text;
+                    let attrStr = "@ \(screenname) :" + retweed_text;
+                    retweed_label.attributedText = FindEmoticon.shareIntance.findAttrString(attrStr, font: retweed_label.font)
                 }
                 //设置背景
                 bgView.hidden = false
