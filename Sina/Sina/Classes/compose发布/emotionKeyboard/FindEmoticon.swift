@@ -67,13 +67,13 @@ class FindEmoticon: NSObject {
         
         for var j = atResults.count - 1; j >= 0; j-=1 {
             
-            let result = atResults[j]
+            let result2 = atResults[j]
             
-            let atStr = (statusText as NSString).substringWithRange(result.range)
+            let atStr = (statusText as NSString).substringWithRange(result2.range)
             
             let atAttrString = NSAttributedString(string: atStr, attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
             
-            attrMStr.replaceCharactersInRange(result.range, withAttributedString: atAttrString)
+            attrMStr.replaceCharactersInRange(result2.range, withAttributedString: atAttrString)
         }
         
      //-------@匹配成功,接下来匹配#话题#--------------------------------------------------
@@ -87,33 +87,33 @@ class FindEmoticon: NSObject {
         
         for var k = topicResults.count - 1; k >= 0; k -= 1 {
             
-            let result = topicResults[k]
+            let result3 = topicResults[k]
             
-            let topicStr = (statusText as NSString).substringWithRange(result.range)
+            let topicStr = (statusText as NSString).substringWithRange(result3.range)
             
             let topicAttrString = NSAttributedString(string: topicStr, attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
             
-            attrMStr.replaceCharactersInRange(result.range, withAttributedString: topicAttrString)
+            attrMStr.replaceCharactersInRange(result3.range, withAttributedString: topicAttrString)
         }
         //-------#话题#匹配成功,接下来匹配url--------------------------------------------------
-        let patternUrl = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?" // 匹配url
-        
-        guard let regex4 = try? NSRegularExpression(pattern: patternUrl, options: []) else {
-            return nil
-        }
-        
-        let urlResults = regex4.matchesInString(statusText, options: [], range: NSRange(location: 0, length: statusText.characters.count))
-        
-        for var k = urlResults.count - 1; k >= 0; k -= 1 {
-            
-            let result = urlResults[k]
-            
-            let urlStr = (statusText as NSString).substringWithRange(result.range)
-            
-            let urlAttrString = NSAttributedString(string: urlStr, attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
-            
-            attrMStr.replaceCharactersInRange(result.range, withAttributedString: urlAttrString)
-        }
+//        let patternUrl = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?" // 匹配url
+//        
+//        guard let regex4 = try? NSRegularExpression(pattern: patternUrl, options: []) else {
+//            return nil
+//        }
+//        
+//        let urlResults = regex4.matchesInString(statusText, options: [], range: NSRange(location: 0, length: statusText.characters.count))
+//        
+//        for var l = urlResults.count - 1; l >= 0; l -= 1 {
+//            
+//            let result2 = urlResults[l]
+//            
+//            let urlStr = (statusText as NSString).substringWithRange(result2.range)
+//            
+//            let urlAttrString = NSAttributedString(string: urlStr, attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
+//            
+//            attrMStr.replaceCharactersInRange(result2.range, withAttributedString: urlAttrString)
+//        }
         // 返回结果
         return attrMStr
     }

@@ -55,6 +55,9 @@
 		6FCBF35B1D91128A0013C344 /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */; };
 		6FCBF35C1D91128A0013C344 /* PicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */; };
 		6FD3AE151D94FFDF003F7DC9 /* FindEmoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AE141D94FFDF003F7DC9 /* FindEmoticon.swift */; };
+		6FD3AE171D9521E1003F7DC9 /* ImageBrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AE161D9521E1003F7DC9 /* ImageBrowerViewController.swift */; };
+		6FD3AE1A1D9550C2003F7DC9 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AE191D9550C2003F7DC9 /* PhotoCollectionViewCell.swift */; };
+		6FD3AE1C1D955D48003F7DC9 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AE1B1D955D48003F7DC9 /* ProgressView.swift */; };
 		6FFA2D201D8698F800CCB12E /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA2D1F1D8698F800CCB12E /* NSDate+Extension.swift */; };
 		6FFA2D221D86A62800CCB12E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA2D211D86A62800CCB12E /* User.swift */; };
 		6FFA2D241D86DD7F00CCB12E /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA2D231D86DD7F00CCB12E /* StatusViewModel.swift */; };
@@ -114,6 +117,9 @@
 		6FCBF3591D91128A0013C344 /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCollectionViewCell.xib; sourceTree = "<group>"; };
 		6FD3AE141D94FFDF003F7DC9 /* FindEmoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindEmoticon.swift; sourceTree = "<group>"; };
+		6FD3AE161D9521E1003F7DC9 /* ImageBrowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageBrowerViewController.swift; path = ../ImageBrowerViewController.swift; sourceTree = "<group>"; };
+		6FD3AE191D9550C2003F7DC9 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		6FD3AE1B1D955D48003F7DC9 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		6FFA2D1F1D8698F800CCB12E /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		6FFA2D211D86A62800CCB12E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6FFA2D231D86DD7F00CCB12E /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
@@ -263,12 +269,13 @@
 		6F9CA1961D7C030700E053B3 /* Home首页 */ = {
 			isa = PBXGroup;
 			children = (
+				6FD3AE181D95504B003F7DC9 /* PhotoBrower */,
 				6F44AB731D854F44007FDEC2 /* HomeModel */,
 				6F4829F61D8195EE00864EDD /* Oauth */,
 				6F0E267B1D7C769300DDB0AB /* Home.storyboard */,
 				6F0E26731D7C754900DDB0AB /* HomeViewController.swift */,
-				6F8AF8A41D87C944007676FB /* HomeTableViewCell.swift */,
 				6F8AF8A61D8823CB007676FB /* PictureCollectionView.swift */,
+				6F8AF8A41D87C944007676FB /* HomeTableViewCell.swift */,
 				6F2B71121D7F0CD7003059F7 /* TitleButton.swift */,
 				6F2B71181D7F2001003059F7 /* PopoverViewController.swift */,
 				6F2B71191D7F2001003059F7 /* PopoverViewController.xib */,
@@ -338,6 +345,16 @@
 				6FCBF35A1D91128A0013C344 /* PicCollectionViewCell.xib */,
 			);
 			path = pickImage;
+			sourceTree = "<group>";
+		};
+		6FD3AE181D95504B003F7DC9 /* PhotoBrower */ = {
+			isa = PBXGroup;
+			children = (
+				6FD3AE161D9521E1003F7DC9 /* ImageBrowerViewController.swift */,
+				6FD3AE191D9550C2003F7DC9 /* PhotoCollectionViewCell.swift */,
+				6FD3AE1B1D955D48003F7DC9 /* ProgressView.swift */,
+			);
+			path = PhotoBrower;
 			sourceTree = "<group>";
 		};
 		999AC1BCDF4B3EB893899C09 /* Frameworks */ = {
@@ -500,10 +517,12 @@
 				6F1F91551D900B450067C289 /* TitleView.swift in Sources */,
 				6F1F91521D8FD9690067C289 /* ComposeViewController.swift in Sources */,
 				6F0E26721D7C6EB300DDB0AB /* MainTabbarController.swift in Sources */,
+				6FD3AE171D9521E1003F7DC9 /* ImageBrowerViewController.swift in Sources */,
 				6FB876231D926C03003B1573 /* EmoticonManager.swift in Sources */,
 				6F8AF8A51D87C944007676FB /* HomeTableViewCell.swift in Sources */,
 				6FFA2D201D8698F800CCB12E /* NSDate+Extension.swift in Sources */,
 				6F2B711A1D7F2001003059F7 /* PopoverViewController.swift in Sources */,
+				6FD3AE1A1D9550C2003F7DC9 /* PhotoCollectionViewCell.swift in Sources */,
 				6F2B71131D7F0CD7003059F7 /* TitleButton.swift in Sources */,
 				6FCBF3571D910A860013C344 /* PictureAddCollectionView.swift in Sources */,
 				6F8AF8A71D8823CB007676FB /* PictureCollectionView.swift in Sources */,
@@ -526,6 +545,7 @@
 				6FB876281D926C85003B1573 /* Emotion.swift in Sources */,
 				6FD3AE151D94FFDF003F7DC9 /* FindEmoticon.swift in Sources */,
 				6F0E268B1D7C861000DDB0AB /* UIbuttonExtension.swift in Sources */,
+				6FD3AE1C1D955D48003F7DC9 /* ProgressView.swift in Sources */,
 				6F44AB711D852B90007FDEC2 /* WelcomeViewController.swift in Sources */,
 				6F17865C1D927946005A880A /* EmotionCollectionViewCell.swift in Sources */,
 			);

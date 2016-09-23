@@ -36,6 +36,7 @@ class HomeViewController: BaseViewController{
             return;
         }
         
+        //UI
         setupNavigationBar()
         setupTitleButton()
         setupTipLabel()
@@ -48,7 +49,8 @@ class HomeViewController: BaseViewController{
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 400
         
-        
+        //notification
+        setupNotifications()
         
     }
 }
@@ -99,6 +101,11 @@ extension HomeViewController{
         tipLabel.textAlignment = .Center
         tipLabel.hidden = true
     }
+    //notifications
+    private func setupNotifications(){
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.openImageBrowerViewController(_:)), name: "openImageBrowerControllerNoti", object: nil)
+    }
     
 }
 
@@ -118,6 +125,16 @@ extension HomeViewController{
     
         presentViewController(propover, animated: true, completion: nil)
     }
+    @objc private func openImageBrowerViewController(noti: NSNotification){
+        // let userInfo = ["indexPath" : indexPath , "picUrls" : picUrls]
+        let indexPath = noti.userInfo!["indexPath"] as! NSIndexPath
+        let picUrls = noti.userInfo!["picUrls"] as! [NSURL]
+        let photoVC = ImageBrowerViewController(indexPath: indexPath, picUrls: picUrls)
+        
+        presentViewController(photoVC, animated: true, completion: nil)
+        
+    }
+    
 }
 //MARK:网络获取数据
 extension HomeViewController{

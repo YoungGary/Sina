@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PictureCollectionView: UICollectionView,UICollectionViewDataSource{
+class PictureCollectionView: UICollectionView,UICollectionViewDataSource,UICollectionViewDelegate{
     
     var picUrls : [NSURL] = [NSURL](){
         didSet{
@@ -17,12 +17,13 @@ class PictureCollectionView: UICollectionView,UICollectionViewDataSource{
     }
     override func awakeFromNib() {
         dataSource = self
-        
+        delegate = self
     }
 
 }
 
 extension PictureCollectionView{
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picUrls.count
     }
@@ -35,6 +36,12 @@ extension PictureCollectionView{
         
         return cell
     }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //通知HomeVc 去弹出控制器
+        let userInfo = ["indexPath" : indexPath , "picUrls" : picUrls]
+        NSNotificationCenter.defaultCenter().postNotificationName("openImageBrowerControllerNoti", object: nil, userInfo: userInfo)
+    }
+    
 }
 
 
