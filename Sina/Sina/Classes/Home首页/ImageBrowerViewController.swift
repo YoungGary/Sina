@@ -46,7 +46,7 @@ class ImageBrowerViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view.bounds.size.width += 20
+        view.frame.size.width += 20
     }
 }
 
@@ -135,6 +135,33 @@ extension ImageBrowerViewController : photoCollectionViewDelegate{
     func imageViewClick() {
         
         didClickCloseButton()
+    }
+}
+
+// MARK:- 遵守AnimationDismissDelegate
+extension ImageBrowerViewController : AnimationDismissDelegate {
+    
+    func indexPathForDimissView() -> NSIndexPath {
+        // 1.获取当前正在显示的indexPath
+        let cell = photoCollectionView.visibleCells().first!
+        
+        return photoCollectionView.indexPathForCell(cell)!
+    }
+    
+    func imageViewForDimissView() -> UIImageView {
+        // 1.创建UIImageView对象
+        let imageView = UIImageView()
+        
+        // 2.设置imageView的frame
+        let cell = photoCollectionView.visibleCells().first as! PhotoCollectionViewCell
+        imageView.frame = cell.imageView.frame
+        imageView.image = cell.imageView.image
+        
+        // 3.设置imageView的属性
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
     }
 }
 

@@ -38,6 +38,7 @@
 		6F4829F91D81960200864EDD /* OauthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4829F71D81960200864EDD /* OauthViewController.swift */; };
 		6F4829FA1D81960200864EDD /* OauthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4829F81D81960200864EDD /* OauthViewController.xib */; };
 		6F4829FC1D81C94200864EDD /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4829FB1D81C94200864EDD /* NetWorkTools.swift */; };
+		6F6E25E31D966BC400071AEB /* BrowerTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6E25E21D966BC400071AEB /* BrowerTransitionAnimation.swift */; };
 		6F7FB1C81D829B2C0035E4E9 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7FB1C71D829B2C0035E4E9 /* UserAccount.swift */; };
 		6F8AF8A51D87C944007676FB /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8AF8A41D87C944007676FB /* HomeTableViewCell.swift */; };
 		6F8AF8A71D8823CB007676FB /* PictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8AF8A61D8823CB007676FB /* PictureCollectionView.swift */; };
@@ -98,6 +99,7 @@
 		6F4829F71D81960200864EDD /* OauthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthViewController.swift; sourceTree = "<group>"; };
 		6F4829F81D81960200864EDD /* OauthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OauthViewController.xib; sourceTree = "<group>"; };
 		6F4829FB1D81C94200864EDD /* NetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
+		6F6E25E21D966BC400071AEB /* BrowerTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowerTransitionAnimation.swift; sourceTree = "<group>"; };
 		6F7FB1C71D829B2C0035E4E9 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		6F8AF8A41D87C944007676FB /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		6F8AF8A61D8823CB007676FB /* PictureCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionView.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				6FD3AE161D9521E1003F7DC9 /* ImageBrowerViewController.swift */,
 				6FD3AE191D9550C2003F7DC9 /* PhotoCollectionViewCell.swift */,
 				6FD3AE1B1D955D48003F7DC9 /* ProgressView.swift */,
+				6F6E25E21D966BC400071AEB /* BrowerTransitionAnimation.swift */,
 			);
 			path = PhotoBrower;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				6F0E26721D7C6EB300DDB0AB /* MainTabbarController.swift in Sources */,
 				6FD3AE171D9521E1003F7DC9 /* ImageBrowerViewController.swift in Sources */,
 				6FB876231D926C03003B1573 /* EmoticonManager.swift in Sources */,
+				6F6E25E31D966BC400071AEB /* BrowerTransitionAnimation.swift in Sources */,
 				6F8AF8A51D87C944007676FB /* HomeTableViewCell.swift in Sources */,
 				6FFA2D201D8698F800CCB12E /* NSDate+Extension.swift in Sources */,
 				6F2B711A1D7F2001003059F7 /* PopoverViewController.swift in Sources */,

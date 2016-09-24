@@ -27,6 +27,8 @@ class HomeViewController: BaseViewController{
     
     lazy var tipLabel : UILabel = UILabel()
     
+    lazy var browerVCTransitionAnimation : BrowerTransitionAnimation = BrowerTransitionAnimation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +76,6 @@ extension HomeViewController{
         navigationItem.titleView = titleButton
         titleButton.addTarget(self, action: #selector(HomeViewController.didClickTitleButton), forControlEvents: .TouchUpInside)
     }
-    
     //refresh header
     private func setupRefreshHeader(){
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadNewData))
@@ -111,6 +112,7 @@ extension HomeViewController{
 
 //MARK:监听点击
 extension HomeViewController{
+    //titleButton
    @objc private func didClickTitleButton(){
         //titleButton.selected = !titleButton.selected;
         //创建控制器
@@ -125,11 +127,21 @@ extension HomeViewController{
     
         presentViewController(propover, animated: true, completion: nil)
     }
+    //图片浏览器
     @objc private func openImageBrowerViewController(noti: NSNotification){
         // let userInfo = ["indexPath" : indexPath , "picUrls" : picUrls]
         let indexPath = noti.userInfo!["indexPath"] as! NSIndexPath
         let picUrls = noti.userInfo!["picUrls"] as! [NSURL]
         let photoVC = ImageBrowerViewController(indexPath: indexPath, picUrls: picUrls)
+        let object = noti.object as! PictureCollectionView
+        
+        //自定义转场
+        photoVC.modalPresentationStyle = .Custom
+        photoVC.transitioningDelegate = browerVCTransitionAnimation
+        //设置这个类的代理为cell 赋值indexpath
+        browerVCTransitionAnimation.presentedDelegate = object
+        browerVCTransitionAnimation.indexPath = indexPath
+        browerVCTransitionAnimation.dismissDelegate = photoVC
         
         presentViewController(photoVC, animated: true, completion: nil)
         
