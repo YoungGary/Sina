@@ -77,24 +77,24 @@ class FindEmoticon: NSObject {
         }
         
      //-------@匹配成功,接下来匹配#话题#--------------------------------------------------
-        let patternTopic = "#.*?#" // 匹配##
-        
-        guard let regex3 = try? NSRegularExpression(pattern: patternTopic, options: []) else {
-            return nil
-        }
-        
-        let topicResults = regex3.matchesInString(statusText, options: [], range: NSRange(location: 0, length: statusText.characters.count))
-        
-        for var k = topicResults.count - 1; k >= 0; k -= 1 {
-            
-            let result3 = topicResults[k]
-            
-            let topicStr = (statusText as NSString).substringWithRange(result3.range)
-            
-            let topicAttrString = NSAttributedString(string: topicStr, attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
-            
-            attrMStr.replaceCharactersInRange(result3.range, withAttributedString: topicAttrString)
-        }
+//        let patternTopic = "#.*?#" // 匹配##
+//        
+//        guard let regex3 = try? NSRegularExpression(pattern: patternTopic, options: []) else {
+//            return nil
+//        }
+//        
+//        let topicResults = regex3.matchesInString(statusText, options: [], range: NSRange(location: 0, length: statusText.characters.count))
+//        
+//        for var k = topicResults.count - 1; k >= 0; k -= 1 {
+//            
+//            let result3 = topicResults[k]
+//            
+//            let topicStr = (statusText as NSString).substringWithRange(result3.range)
+//            
+//            let topicAttrString = NSAttributedString(string: topicStr, attributes: [NSForegroundColorAttributeName : UIColor.blueColor()])
+//            
+//            attrMStr.replaceCharactersInRange(result3.range, withAttributedString: topicAttrString)
+//        }
         //-------#话题#匹配成功,接下来匹配url--------------------------------------------------
 //        let patternUrl = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?" // 匹配url
 //        

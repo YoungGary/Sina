@@ -9,7 +9,15 @@
 import UIKit
 import SDWebImage
 
+//MARK:protocol
+protocol photoCollectionViewDelegate : NSObjectProtocol{
+    func imageViewClick()
+}
+
 class PhotoCollectionViewCell: UICollectionViewCell {
+    
+    //MARK:定义代理属性
+    var delegate : photoCollectionViewDelegate?
     
     //进度条
     lazy var progressView : ProgressView = ProgressView()
@@ -87,9 +95,18 @@ extension PhotoCollectionViewCell{
         
         progressView.backgroundColor = UIColor.clearColor()
         progressView.hidden = true
+        //tap
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PhotoCollectionViewCell.didClickImageVIew))
+        imageView.addGestureRecognizer(tap)
+        imageView.userInteractionEnabled = true
     }
 }
 
+extension PhotoCollectionViewCell{
+    @objc private func didClickImageVIew(){
+        delegate?.imageViewClick()
+    }
+}
 
 
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 //collectionView-> scrollView-> imageView
 class ImageBrowerViewController: UIViewController {
     
@@ -92,14 +93,28 @@ extension ImageBrowerViewController{
 }
 //MARK:事件监听
 extension ImageBrowerViewController{
+    //关闭
     @objc private func didClickCloseButton(){
         dismissViewControllerAnimated(true, completion: nil)
     }
+    //保存图片
     @objc private func didClickSaveButton(){
-        print("save")
+        let cell = photoCollectionView.visibleCells().first as! PhotoCollectionViewCell
+        guard let image = cell.imageView.image else{
+            return
+        }
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(ImageBrowerViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    //  - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+    @objc private func image(image : UIImage , didFinishSavingWithError : NSError? ,contextInfo : AnyObject?){
+        if didFinishSavingWithError != nil {
+            SVProgressHUD.showErrorWithStatus("保存失败")
+        }else{
+            SVProgressHUD.showSuccessWithStatus("保存成功")
+        }
     }
 }
-
+//MARK:UICollectionViewDataSource
 extension ImageBrowerViewController : UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picUrls.count
@@ -110,12 +125,21 @@ extension ImageBrowerViewController : UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("photo", forIndexPath: indexPath) as! PhotoCollectionViewCell
         
         cell.picURL = picUrls[indexPath.item]
-        
+        cell.delegate = self
         return cell
     }
 }
 
+//MARK:实现代理方法
+extension ImageBrowerViewController : photoCollectionViewDelegate{
+    func imageViewClick() {
+        
+        didClickCloseButton()
+    }
+}
 
+
+//MARK:自定义flowlayout
 class photoBrowerFlowLayout : UICollectionViewFlowLayout{
     override func prepareLayout() {
         super.prepareLayout()
